@@ -9,6 +9,32 @@ DLList<T>::DLList() {
     listSize = 0;
 }
 template<typename T>
+DLList<T>::~DLList() {
+    clear();
+}
+template<typename T>
+DLList<T>::DLList(const DLList<T>& other) {
+    head = new DLLNode<T>; //sentinel header node
+    tail = new DLLNode<T>; //sentinel tail node
+    head->next = tail;
+    tail->prev = head;
+    DLLNode<T>* cur = other.head->next;
+    while(cur != other.tail){
+        push_back(cur->data);
+        cur = cur->next;
+    }
+}
+template<typename T>
+DLList<T>& DLList<T>::operator=(const DLList<T>& other){
+    clear();
+    DLLNode<T>* cur = other.head->next;
+    while(cur != other.tail){
+        push_back(cur->data);
+        cur = cur->next;
+    }
+    return *this;
+}
+template<typename T>
 unsigned DLList<T>::size() const {
     return listSize;
 }

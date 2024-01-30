@@ -7,7 +7,7 @@ public:
     //no-arg constructor
     DLList();
     //destructor
-    //~DLList();
+    ~DLList();
     //copy constructor
     DLList(const DLList<T>& other);
     DLList<T>& operator=(const DLList<T>& other);

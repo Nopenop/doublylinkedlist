@@ -37,5 +37,18 @@ l.print();
 // prints swapped
 l.evenOdd();
 l.print();
+
+
+std::cout<<"\n\n\n";
+
+// test for the remaining methods
+DLList<char> ex1(l);
+ex1.pop_back();
+ex1.pop_back();
+ex1.pop_back();
+ex1.print();
+
+l = ex1;
+l.print();
 return 0;
 }
