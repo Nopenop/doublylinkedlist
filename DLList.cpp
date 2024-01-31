@@ -166,3 +166,51 @@ void DLList<T>::push_front(const T& value) {
     head->next->next->prev = head->next;
     listSize++;
 }
+
+template<typename T>
+void DLList<T>::insert(int index, T value, int k) {
+    if(index >= listSize) return;
+    DLLNode<T>* cur = head->next;
+    int i = 0;
+    while(i < index-1){
+        cur = cur->next;
+        i++;
+    }
+    i = 0;
+    while(i < k){
+        cur->next = new DLLNode<T>(value, cur, cur->next);
+        listSize++;
+        i++;
+    }
+}
+
+template<typename T>
+void DLList<T>::erase (int index){
+    if(index >= listSize) return;
+    DLLNode<T>* cur = head->next;
+    int i = 0;
+    while(i < index){
+        cur = cur->next;
+        i++;
+    }
+    cur->prev->next = cur->next;
+    cur->next->prev = cur->prev;
+    delete cur;
+    listSize--;
+}
+
+template<typename T>
+void DLList<T>::remove (T value){
+    DLLNode<T>* cur = head->next;
+    int i = 0;
+    while(i < listSize){
+        if (cur->data == value){
+            cur = cur->next;
+            erase(i);
+            continue;
+        }
+        cur = cur->next;
+        i++;
+    }
+    
+}

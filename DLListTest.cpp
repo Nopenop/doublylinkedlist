@@ -46,9 +46,12 @@ DLList<char> ex1(l);
 ex1.pop_back();
 ex1.pop_back();
 ex1.pop_back();
+ex1.insert(2, 'b', 3);
 ex1.print();
-
+ex1.erase(2);
 l = ex1;
+l.print();
+l.remove('b');
 l.print();
 return 0;
 }

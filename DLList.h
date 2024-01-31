@@ -25,6 +25,10 @@ public:
     void pop_back(); // removes last node from list
     void evenOdd(); // arranges nodes such that even indexed nodes are listed first
                     // and odd nodes are listed last
+
+    void insert (int index, T value, int k = 0);
+    void erase (int index);
+    void remove (T value);
 private:
     DLLNode<T>* head; //the first node in the linked list
     DLLNode<T>* tail; //the last node in the linked list
